@@ -8,21 +8,31 @@ struct node
 {
     int data;
     struct node *link;
-}*head, *ptr1;
+}*head, *next;
 
 int main()
 {
+    //Creating head node
     head = NULL;
     head = (struct node *)malloc(sizeof(struct node));
-    (*head).data = 45;
+    (void)(head -> data);
     (*head).link = NULL;
-    printf("%d\n", head -> data);
-
-    ptr1 = NULL;
-    ptr1 = (struct node *)malloc(sizeof(struct node));
-    ptr1 -> data = 45;
-    ptr1 -> link = NULL;
-    head -> link = ptr1;
-    printf("%d", ptr1 -> data);
+    printf("head -> ");
+    
+    //creating first node
+    next = NULL;
+    next = (struct node *)malloc(sizeof(struct node));
+    next -> data = 55;
+    next -> link = NULL;
+    head -> link = next;
+    printf("ptr1[%d] -> ", next -> data);
+    
+    //Creating second node
+    next = NULL;
+    next = (struct node *)malloc(sizeof(struct node));
+    next -> data = 75;
+    next -> link = NULL;
+    head -> link -> link = next;
+    printf("ptr2 [%d] -> NULL", next -> data);
     return 0;
 }
